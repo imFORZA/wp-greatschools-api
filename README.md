@@ -1,0 +1,1 @@
+# wp-greatschools-api
