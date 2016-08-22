@@ -13,4 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  */
 class GreatSchoolsAPI {
 
+
+
 }
