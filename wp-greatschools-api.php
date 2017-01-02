@@ -197,14 +197,19 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		}
 
 		/**
-		 * get_nearby_cities function.
+		 * Returns a list of cities near another city.
 		 *
 		 * @access public
 		 * @param mixed $state State.
 		 * @param mixed $city City.
+		 * @param mixed $radius Radius.
+		 * @param mixed $sort Sort.
 		 * @return void
 		 */
-		public function get_nearby_cities( $state, $city ) {
+		public function get_nearby_cities( $state, $city, $radius, $sort = 'rating' ) {
+
+			$request = $this->base_uri . '/cities/nearby/' . $state . '/'. $city .'?key=' . static::$api_key . '&radius='. $radius .'&sort=' . $sort;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -216,6 +221,9 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		 * @return void
 		 */
 		public function get_districts( $state, $city ) {
+
+			$request = $this->base_uri . '/districts/' . $state . '/'. $city .'?key=' . static::$api_key;
+			return $this->fetch( $request );
 		}
 	}
 }
