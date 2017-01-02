@@ -98,36 +98,123 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		 * get_nearby_schools function.
 		 *
 		 * @access public
-		 * @param mixed $state
-		 * @param mixed $zip
-		 * @param mixed $city
-		 * @param mixed $address
-		 * @param mixed $latitude
-		 * @param mixed $longitude
-		 * @param mixed $school_type
-		 * @param mixed $level_code
-		 * @param mixed $radius
-		 * @param mixed $limit
+		 * @param mixed $state State.
+		 * @param mixed $zip Zip.
+		 * @param mixed $city City.
+		 * @param mixed $address Address.
+		 * @param mixed $latitude Latitude.
+		 * @param mixed $longitude Longitude.
+		 * @param mixed $school_type School Type.
+		 * @param mixed $level_code Level Code.
+		 * @param mixed $radius Radius.
+		 * @param mixed $limit Limit.
 		 * @return void
 		 */
 		public function get_nearby_schools( $state, $zip, $city, $address, $latitude, $longitude, $school_type, $level_code, $radius, $limit ) {
 		}
+
+		/**
+		 * Returns a profile data for a specific school.
+		 *
+		 * @access public
+		 * @param mixed $state State.
+		 * @param mixed $school_id School ID.
+		 * @return void
+		 */
 		public function get_school( $state, $school_id ) {
+
+			$request = $this->base_uri . $state . '/'. $school_id .'?key=' . static::$api_key;
+			return $this->fetch( $request );
+
 		}
+
+		/**
+		 * Returns a list of schools based on a search string.
+		 *
+		 * @access public
+		 * @param mixed $state State.
+		 * @param mixed $query_string Query String.
+		 * @return void
+		 */
 		public function search_for_schools( $state, $query_string ) {
 		}
+
+		/**
+		 * get_school_reviews function.
+		 *
+		 * @access public
+		 * @param mixed $state State.
+		 * @param mixed $city City.
+		 * @param mixed $school_id School ID.
+		 * @return void
+		 */
 		public function get_school_reviews( $state, $city, $school_id ) {
+
+			$request = $this->base_uri . '/reviews/school/' . $state . '/'. $school_id .'?key=' . static::$api_key;
+			return $this->fetch( $request );
 		}
+
+		/**
+		 * get_review_topics function.
+		 *
+		 * @access public
+		 * @return void
+		 */
 		public function get_review_topics() {
 		}
+
+		/**
+		 * get_school_test_scores function.
+		 *
+		 * @access public
+		 * @param mixed $state State.
+		 * @param mixed $school_id School ID.
+		 * @return void
+		 */
 		public function get_school_test_scores( $state, $school_id ) {
 		}
+
+		/**
+		 * get_school_census_data function.
+		 *
+		 * @access public
+		 * @param mixed $state State.
+		 * @param mixed $school_id School ID.
+		 * @return void
+		 */
 		public function get_school_census_data( $state, $school_id ) {
 		}
+
+		/**
+		 * get_city_schools function.
+		 *
+		 * @access public
+		 * @param mixed $state State.
+		 * @param mixed $city City.
+		 * @return void
+		 */
 		public function get_city_schools( $state, $city ) {
 		}
+
+		/**
+		 * get_nearby_cities function.
+		 *
+		 * @access public
+		 * @param mixed $state State.
+		 * @param mixed $city City.
+		 * @return void
+		 */
 		public function get_nearby_cities( $state, $city ) {
 		}
+
+		/**
+		 * get_districts function.
+		 *
+		 * @access public
+		 * @param mixed $state State.
+		 * @param mixed $city City.
+		 * @return void
+		 */
 		public function get_districts( $state, $city ) {
 		}
 	}
