@@ -175,7 +175,7 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		}
 
 		/**
-		 * get_school_census_data function.
+		 * Returns census and profile data for a school.
 		 *
 		 * @access public
 		 * @param mixed $state State.
@@ -183,6 +183,9 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		 * @return void
 		 */
 		public function get_school_census_data( $state, $school_id ) {
+
+			$request = $this->base_uri . '/school/census/' . $state . '/'. $school_id .'?key=' . static::$api_key;
+			return $this->fetch( $request );
 		}
 
 		/**
