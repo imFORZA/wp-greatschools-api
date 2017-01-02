@@ -136,35 +136,44 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		 * @param mixed $query_string Query String.
 		 * @return void
 		 */
-		public function search_for_schools( $state, $query_string ) {
+		public function search_for_schools( $state, $query_string, $level_code, $sort, $limit ) {
+
+			$request = $this->base_uri . '/search/schools?key=' . static::$api_key . '&state=' . $state . '&q='. $query_string .'&levelCode='. $level_code .'&sort='. $sort .'&limit=' . $limit;
+			return $this->fetch( $request );
 		}
 
 		/**
-		 * get_school_reviews function.
+		 * Returns a list of the most recent reviews for a school or for any schools in a city.
 		 *
 		 * @access public
 		 * @param mixed $state State.
 		 * @param mixed $city City.
 		 * @param mixed $school_id School ID.
+		 * @param mixed $cutoffage Cut Off Age.
+		 * @param mixed $limit Limit.
+		 * @param mixed $topic_id Topic ID.
 		 * @return void
 		 */
-		public function get_school_reviews( $state, $city, $school_id ) {
+		public function get_school_reviews( $state, $city, $school_id, $cutoffage, $limit, $topic_id ) {
 
-			$request = $this->base_uri . '/reviews/school/' . $state . '/'. $school_id .'?key=' . static::$api_key;
+			$request = $this->base_uri . '/reviews/school/' . $state . '/'. $school_id .'?key=' . static::$api_key . '&limit='. $limit .'&cutoffAge='. $cutoffage .'&topicId=' . $topic_id;
 			return $this->fetch( $request );
 		}
 
 		/**
-		 * get_review_topics function.
+		 * Returns a list of topics available for topical reviews.
 		 *
 		 * @access public
 		 * @return void
 		 */
 		public function get_review_topics() {
+
+			$request = $this->base_uri . '/reviews/reviewTopics?key=' . static::$api_key;
+			return $this->fetch( $request );
 		}
 
 		/**
-		 * get_school_test_scores function.
+		 * Returns test and rank data for a specific school.
 		 *
 		 * @access public
 		 * @param mixed $state State.
@@ -172,6 +181,9 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		 * @return void
 		 */
 		public function get_school_test_scores( $state, $school_id ) {
+
+			$request = $this->base_uri . '/school/tests/' . $state . '/'. $school_id .'?key=' . static::$api_key;
+			return $this->fetch( $request );
 		}
 
 		/**
@@ -189,7 +201,7 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		}
 
 		/**
-		 * get_city_schools function.
+		 * Returns information about a city.
 		 *
 		 * @access public
 		 * @param mixed $state State.
@@ -197,6 +209,9 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		 * @return void
 		 */
 		public function get_city_schools( $state, $city ) {
+
+			$request = $this->base_uri . '/cities/' . $state . '/'. $city .'?key=' . static::$api_key;
+			return $this->fetch( $request );
 		}
 
 		/**
