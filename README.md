@@ -7,7 +7,8 @@ A WordPress php library for interacting with the [Great Schools API](http://www.
 [![Issue Count](https://codeclimate.com/github/wp-api-libraries/wp-greatschools-api/badges/issue_count.svg)](https://codeclimate.com/github/wp-api-libraries/wp-greatschools-api)
 
 
-# Example usage
+## USAGE
+
 ### GET Request
 ```php
 $greatschools = new GreatSchoolsAPI( 'EXAMPLE-API-KEY');
