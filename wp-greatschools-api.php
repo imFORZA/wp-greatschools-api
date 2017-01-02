@@ -91,7 +91,10 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 
 			$request = $this->base_uri . $state . '/' . $city . '?key=' . static::$api_key;
 
-			return $this->fetch( $request );
+			$xml = simplexml_load_file( $request );
+			$json = wp_json_encode( $xml );
+			$results = json_decode( $json, true );
+			return $results;
 		}
 
 		/**
@@ -124,7 +127,11 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		public function get_school( $state, $school_id ) {
 
 			$request = $this->base_uri . $state . '/'. $school_id .'?key=' . static::$api_key;
-			return $this->fetch( $request );
+
+			$xml = simplexml_load_file( $request );
+			$json = wp_json_encode( $xml );
+			$results = json_decode( $json, true );
+			return $results;
 
 		}
 
@@ -139,7 +146,11 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		public function search_for_schools( $state, $query_string, $level_code, $sort, $limit ) {
 
 			$request = $this->base_uri . '/search/schools?key=' . static::$api_key . '&state=' . $state . '&q='. $query_string .'&levelCode='. $level_code .'&sort='. $sort .'&limit=' . $limit;
-			return $this->fetch( $request );
+
+			$xml = simplexml_load_file( $request );
+			$json = wp_json_encode( $xml );
+			$results = json_decode( $json, true );
+			return $results;
 		}
 
 		/**
@@ -157,7 +168,11 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		public function get_school_reviews( $state, $city, $school_id, $cutoffage, $limit, $topic_id ) {
 
 			$request = $this->base_uri . '/reviews/school/' . $state . '/'. $school_id .'?key=' . static::$api_key . '&limit='. $limit .'&cutoffAge='. $cutoffage .'&topicId=' . $topic_id;
-			return $this->fetch( $request );
+
+			$xml = simplexml_load_file( $request );
+			$json = wp_json_encode( $xml );
+			$results = json_decode( $json, true );
+			return $results;
 		}
 
 		/**
@@ -169,7 +184,11 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		public function get_review_topics() {
 
 			$request = $this->base_uri . '/reviews/reviewTopics?key=' . static::$api_key;
-			return $this->fetch( $request );
+
+			$xml = simplexml_load_file( $request );
+			$json = wp_json_encode( $xml );
+			$results = json_decode( $json, true );
+			return $results;
 		}
 
 		/**
@@ -183,7 +202,10 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		public function get_school_test_scores( $state, $school_id ) {
 
 			$request = $this->base_uri . '/school/tests/' . $state . '/'. $school_id .'?key=' . static::$api_key;
-			return $this->fetch( $request );
+			$xml = simplexml_load_file( $request );
+			$json = wp_json_encode( $xml );
+			$results = json_decode( $json, true );
+			return $results;
 		}
 
 		/**
@@ -197,7 +219,10 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		public function get_school_census_data( $state, $school_id ) {
 
 			$request = $this->base_uri . '/school/census/' . $state . '/'. $school_id .'?key=' . static::$api_key;
-			return $this->fetch( $request );
+			$xml = simplexml_load_file( $request );
+			$json = wp_json_encode( $xml );
+			$results = json_decode( $json, true );
+			return $results;
 		}
 
 		/**
@@ -211,7 +236,11 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		public function get_city_schools( $state, $city ) {
 
 			$request = $this->base_uri . '/cities/' . $state . '/'. $city .'?key=' . static::$api_key;
-			return $this->fetch( $request );
+
+			$xml = simplexml_load_file( $request );
+			$json = wp_json_encode( $xml );
+			$results = json_decode( $json, true );
+			return $results;
 		}
 
 		/**
@@ -227,7 +256,11 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		public function get_nearby_cities( $state, $city, $radius, $sort = 'rating' ) {
 
 			$request = $this->base_uri . '/cities/nearby/' . $state . '/'. $city .'?key=' . static::$api_key . '&radius='. $radius .'&sort=' . $sort;
-			return $this->fetch( $request );
+
+			$xml = simplexml_load_file( $request );
+			$json = wp_json_encode( $xml );
+			$results = json_decode( $json, true );
+			return $results;
 		}
 
 		/**
@@ -241,7 +274,11 @@ if ( ! class_exists( 'GreatSchoolsAPI' ) ) {
 		public function get_districts( $state, $city ) {
 
 			$request = $this->base_uri . '/districts/' . $state . '/'. $city .'?key=' . static::$api_key;
-			return $this->fetch( $request );
+
+			$xml = simplexml_load_file( $request );
+			$json = wp_json_encode( $xml );
+			$results = json_decode( $json, true );
+			return $results;
 		}
 	}
 }
